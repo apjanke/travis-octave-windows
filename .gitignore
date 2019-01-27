@@ -1,0 +1,9 @@
+*.o
+*.a
+*.oct
+*.swp
+/target
+/doc/DOCSTRINGS.texi.tmp
+/doc/*.dvi
+/doc/*.qhc
+

@@ -1,0 +1,18 @@
+language: c
+
+env:
+  global:
+    - OCTAVE=octave
+    - OCTAVE_VER=4.4
+
+matrix:
+  include:
+    - os: windows
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./dev-tools/install-octave-windows.sh; fi
+
+script:
+  - $OCTAVE --version
+  - $OCTAVE --eval "ver"
+  - $OCTAVE --eval 'disp("Hello, world!")'
