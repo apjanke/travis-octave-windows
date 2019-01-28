@@ -10,7 +10,7 @@ matrix:
     - os: windows
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./dev-tools/install-octave-windows.sh; fi
+  - ./dev-tools/install-octave-windows.sh
 
 script:
   - PowerShell -Command 'Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize'
