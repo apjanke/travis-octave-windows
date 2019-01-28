@@ -12,6 +12,8 @@ matrix:
 install:
   - choco install make
   - ./dev-tools/install-octave-windows.sh
+  # Enable running local PowerShell scripts
+  - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
 
 script:
   - env
