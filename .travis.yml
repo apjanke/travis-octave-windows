@@ -13,6 +13,8 @@ install:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then ./dev-tools/install-octave-windows.sh; fi
 
 script:
+  - PowerShell -Command 'Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize'
+  - PowerShell -Command 'Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize'
   - $OCTAVE --version
   - $OCTAVE --eval "ver"
   - $OCTAVE --eval 'disp("Hello, world!")'
