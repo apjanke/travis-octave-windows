@@ -10,6 +10,7 @@ matrix:
     - os: windows
 
 install:
+  - choco install make
   - ./dev-tools/install-octave-windows.sh
 
 script:
