@@ -25,6 +25,7 @@ script:
   - $OCTAVE --version
   - $OCTAVE --eval "ver"
   - $OCTAVE --eval 'disp("Hello, world!")'
+  - dev-tools/diagnostics.bat
   - dev-tools/example_windows_script.bat
   - PowerShell -Command 'Get-Location'
   - PowerShell -File 'dev-tools\example_powershell_script.ps1'
