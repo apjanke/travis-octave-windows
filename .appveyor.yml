@@ -1,0 +1,31 @@
+install:
+  - cinst make
+  - cinst vcredist2010
+  - cinst octave.portable
+
+environment:
+  OCTAVE: octave
+
+test_script:
+  - env
+  - git config -l
+  - make --version
+  - choco list -l
+  - PowerShell -Command 'Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize'
+  - PowerShell -Command 'Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize'
+  - $OCTAVE --version
+  - $OCTAVE --eval "ver"
+  - $OCTAVE --eval 'disp("Hello, world!")'
+  - dev-tools/diagnostics.bat
+  - dev-tools/example_windows_script.bat
+  - PowerShell -Command 'Get-Location'
+  - PowerShell -File 'dev-tools\example_powershell_script.ps1'
+  - $OCTAVE --version
+  - $OCTAVE --eval "ver"
+  - $OCTAVE --eval 'disp("Hello, world!")'
+  - mkoctfile --version
+
+notifications:
+  - provider: Email
+    to:
+      - floss@apjanke.net
