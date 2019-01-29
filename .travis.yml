@@ -30,8 +30,6 @@ script:
   - dev-tools/example_windows_script.bat
   - PowerShell -Command 'Get-Location'
   - PowerShell -File 'dev-tools\example_powershell_script.ps1'
-  # Let's try manually hacking the path
-  - PATH="/c/ProgramData/chocolatey/lib/octave.portable/tools/octave/bin:$PATH"
   - $OCTAVE --version
   - $OCTAVE --eval "ver"
   - $OCTAVE --eval 'disp("Hello, world!")'
