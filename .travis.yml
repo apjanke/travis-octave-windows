@@ -11,6 +11,7 @@ matrix:
 
 install:
   - choco install make
+  - choco install vcredist2010
   - ./dev-tools/install-octave-windows.sh
   # Enable running local PowerShell scripts
   - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
