@@ -6,6 +6,8 @@ install:
 environment:
   OCTAVE: octave
 
+build: off
+
 test_script:
   - env
   - git config -l
