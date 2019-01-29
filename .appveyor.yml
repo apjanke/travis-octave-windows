@@ -15,16 +15,16 @@ test_script:
   - choco list -l
   - ps: Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize
   - ps: Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -AutoSize
-  - $OCTAVE --version
-  - $OCTAVE --eval "ver"
-  - $OCTAVE --eval 'disp("Hello, world!")'
+  - %OCTAVE% --version
+  - %OCTAVE% --eval "ver"
+  - %OCTAVE% --eval 'disp("Hello, world!")'
   - dev-tools/diagnostics.bat
   - dev-tools/example_windows_script.bat
-  - PowerShell -Command 'Get-Location'
-  - PowerShell -File 'dev-tools\example_powershell_script.ps1'
-  - $OCTAVE --version
-  - $OCTAVE --eval "ver"
-  - $OCTAVE --eval 'disp("Hello, world!")'
+  - ps: Get-Location
+  - ps: dev-tools\example_powershell_script.ps1
+  - %OCTAVE% --version
+  - %OCTAVE% --eval "ver"
+  - %OCTAVE% --eval 'disp("Hello, world!")'
   - mkoctfile --version
 
 notifications:
