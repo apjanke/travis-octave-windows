@@ -17,6 +17,8 @@ install:
   - PowerShell -Command 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned'
 
 script:
+  - find ~/.bin
+  - find ~/bin
   - env
   - git config -l
   - make --version
